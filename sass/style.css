@@ -1,0 +1,77 @@
+.cards .ui.button, .add_project {
+  -webkit-box-shadow: 0px 2px 5px 0px lightgray !important;
+          box-shadow: 0px 2px 5px 0px lightgray !important;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header,
+nav {
+  margin: auto;
+}
+
+header .menu,
+nav .menu {
+  background: #414141 !important;
+  border-radius: 0 !important;
+}
+
+header a,
+nav a {
+  font-size: 23px;
+  color: #FF4969;
+}
+
+header a:hover,
+nav a:hover {
+  color: #FF4969;
+  text-decoration: underline;
+}
+
+.cards {
+  margin: 50px auto auto 50px !important;
+  padding: 50px;
+  height: 350px;
+}
+
+.cards form button {
+  width: 100%;
+}
+
+.cards .meta span {
+  margin: 10px 4px 10px 0px !important;
+}
+
+.container {
+  display: -ms-inline-grid !important;
+  display: inline-grid !important;
+  -ms-grid-columns: auto auto auto !important;
+      grid-template-columns: auto auto auto !important;
+}
+
+.add_project {
+  margin: 50px auto auto auto !important;
+}
+
+.modal .header {
+  margin: auto auto 20px auto !important;
+}
+
+.modal label {
+  margin: 10px !important;
+  text-decoration: underline;
+}
+
+.modal form input, .modal form textarea {
+  margin: 10px !important;
+  width: 70% !important;
+}
+
+.modal form .button {
+  margin: 10px !important;
+}
+/*# sourceMappingURL=style.css.map */
