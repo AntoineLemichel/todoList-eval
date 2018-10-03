@@ -1,0 +1,124 @@
+$color-purple: #FF4969;
+
+%textcenter {
+  text-align: center;
+}
+
+%shadow {
+  box-shadow: 0px 2px 5px 0px lightgray !important;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header,
+nav {
+  margin: auto;
+
+  .menu {
+    background: #414141 !important;
+    border-radius: 0 !important;
+  }
+
+  a {
+    font-size: 23px;
+    color: $color-purple;
+
+    &:hover {
+      color: $color-purple;
+      text-decoration: underline;
+    }
+  }
+}
+
+.cards {
+  margin: auto !important;
+  height: 350px;
+
+  .button {
+    width: 100%;
+  }
+
+  .meta {
+    span {
+      margin: 10px 4px 10px 0px !important;
+    }
+  }
+
+  .ui.button {
+    @extend %shadow;
+  }
+}
+
+.container-index {
+  display: grid !important;
+  grid-template-columns: auto auto auto !important;
+  grid-template-rows: auto auto auto !important;
+  grid-column-gap: 5px !important;
+  grid-row-gap: 30px !important;
+}
+
+.add_project {
+  margin: 50px auto auto auto !important;
+  @extend %shadow;
+}
+
+.modal {
+  .header {
+    margin: auto auto 20px auto !important;
+  }
+
+  label {
+    margin: 10px !important;
+    text-decoration: underline;
+  }
+
+  form {
+
+    input,
+    textarea {
+      margin: 10px !important;
+      width: 70% !important;
+    }
+
+    .button {
+      margin: 10px !important;
+    }
+  }
+}
+
+
+
+.breadcrumb {
+  list-style: none !important;
+  font-size: 1.4rem;
+  font-weight: bold;
+  li {
+    display: inline;
+    &::before{
+      content: "\27A4";
+    }
+    a {
+      color: $color-purple;
+      margin: 10px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+.container_detail {
+  .card {
+    width: 95%;
+    margin: auto;
+  }
+  table {
+    width: 90% !important;
+    margin: auto auto 50px auto !important;
+  }
+}
