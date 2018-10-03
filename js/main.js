@@ -1,5 +1,8 @@
-$('#add_project').click(function(){
+$('#add_project').click(function () {
   $('.ui.modal')
-  .modal('show')
-;
+    .modal('show');
+});
+
+$('#settings_project').click(function () {
+  $('.ui.modal').modal('show');
 });
