@@ -30,11 +30,13 @@
     <nav>
       <div class="ui menu one item menu">
         <div class="header item center-menu">
-          <a href="index.html"><i class="home icon"></i>Home</a>
+          <a href="index.php"><i class="home icon"></i>Home</a>
         </div>
       </div>
     </nav>
   </header>
+
+
   <div class="ui one column stackable center aligned page grid">
     <div class="column twelve wide">
       <button class="ui button green add_project" id="add_project">
@@ -64,6 +66,21 @@
           </div>
           <div class="meta">
             <span>50 %</span>
+            <?php
+            if($deadline < $datecreate){
+              ?>
+              <div class="ui top right attached">
+                <span class="ui ribbon label red">Failure</span>
+              </div>
+              <?php
+            } else {
+              ?>
+              <div class="ui top right attached">
+                <span class="ui ribbon label orange">Working</span>
+              </div>
+              <?php
+            }
+            ?>
           </div>
           <div class="description">
             <p>
@@ -73,15 +90,10 @@
         </div>
         <div class="extra content ui grid two column">
           <div class="tree wide column">
-            <form action="see/see_project.php" method="post" class="ui form">
-              <button type="submit" class="ui green button">See</button>
-            </form>
+            <a href="project/see_project.php?index=<?= $data['id']?>&amp;name=<?= $data['name']?>" class="ui green button">See</a>
           </div>
           <div class="tree wide column">
-            <!-- <form action="delete/delete_project.php" method="get" class="ui form"> -->
-              <!-- <button type="submit" class="ui red button" name="">Delete</button> -->
-              <a href="delete/delete_project.php?index=<?= $data['id']?>" class="ui red button">Delete</a>
-            <!-- </form> -->
+            <a href="delete/delete_project.php?index=<?= $data['id']?>" class="ui red button">Delete</a>
           </div>
         </div>
         <div class="meta">
