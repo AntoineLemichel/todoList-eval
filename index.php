@@ -42,8 +42,9 @@
       </button>
     </div>
   </div>
-  <?php
-  include("bdd.php");
+  <div class="container-index">
+    <?php
+  require("bdd.php");
   $req = $bdd->query('SELECT * FROM project');
 
   while($data = $req->fetch()){
@@ -54,7 +55,6 @@
   $interval = $datecreate->diff($deadline);
 
 ?>
-  <div class="container">
     <div class="ui cards">
       <div class="card">
         <div class="content">
@@ -71,16 +71,17 @@
             </p>
           </div>
         </div>
-        <div class="extra content">
-          <div class="ui button">
-            <form action="see/see_project.php" method="post">
-              <input type="submit" class="ui green button"></input>
+        <div class="extra content ui grid two column">
+          <div class="tree wide column">
+            <form action="see/see_project.php" method="post" class="ui form">
+              <button type="submit" class="ui green button">See</button>
             </form>
           </div>
-          <div class="ui button">
-            <form action="delete/delete_project.php" method="post">
-              <input type="submit" class="ui red button"></input>
-            </form>
+          <div class="tree wide column">
+            <!-- <form action="delete/delete_project.php" method="get" class="ui form"> -->
+              <!-- <button type="submit" class="ui red button" name="">Delete</button> -->
+              <a href="delete/delete_project.php?index=<?= $data['id']?>" class="ui red button">Delete</a>
+            <!-- </form> -->
           </div>
         </div>
         <div class="meta">
@@ -91,10 +92,10 @@
         </div>
       </div>
     </div>
+
+
+    <?php }?>
   </div>
-
-
-  <?php }?>
 
 
 

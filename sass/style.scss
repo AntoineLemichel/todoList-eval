@@ -33,13 +33,10 @@ nav {
 }
 
 .cards {
-  margin: 50px auto auto 50px !important;
-  padding: 50px;
+  margin: auto !important;
   height: 350px;
-  form {
-    button {
-      width: 100%;
-    }
+  .button {
+    width: 100%;
   }
   .meta {
     span {
@@ -51,10 +48,14 @@ nav {
     @extend %shadow;
   }
 }
-.container {
-  display: inline-grid !important;
+.container-index {
+  display: grid !important;
   grid-template-columns: auto auto auto !important;
+  grid-template-rows: auto auto auto !important;
+  grid-column-gap: 5px !important;
+  grid-row-gap: 30px !important;
 }
+
 .add_project {
   margin : 50px auto auto auto !important;
   @extend %shadow;
