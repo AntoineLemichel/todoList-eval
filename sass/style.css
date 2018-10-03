@@ -69,12 +69,46 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.modal form input, .modal form textarea {
+.modal form input,
+.modal form textarea {
   margin: 10px !important;
   width: 70% !important;
 }
 
 .modal form .button {
   margin: 10px !important;
+}
+
+.breadcrumb {
+  list-style: none !important;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.breadcrumb li {
+  display: inline;
+}
+
+.breadcrumb li::before {
+  content: "\27A4";
+}
+
+.breadcrumb li a {
+  color: #FF4969;
+  margin: 10px;
+}
+
+.breadcrumb li a:hover {
+  text-decoration: underline;
+}
+
+.container_detail .card {
+  width: 95%;
+  margin: auto;
+}
+
+.container_detail table {
+  width: 90% !important;
+  margin: auto auto 50px auto !important;
 }
 /*# sourceMappingURL=style.css.map */
