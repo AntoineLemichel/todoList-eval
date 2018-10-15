@@ -93,7 +93,7 @@
             <a href="project/see_project.php?index=<?= $data['id']?>&amp;name=<?= $data['name']?>" class="ui green button">See</a>
           </div>
           <div class="tree wide column">
-            <a href="delete/delete_project.php?index=<?= $data['id']?>" class="ui red button">Delete</a>
+            <a href="delete/delete_project.php?index=<?= $data['id']?>" class="delete">Delete</a>
           </div>
         </div>
         <div class="meta">
