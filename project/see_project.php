@@ -203,7 +203,7 @@ require("../bdd.php");
               <?php
                 }
               ?>
-              <a href="delete_task.php?index=<?= $data_list['task_id']?>" class="delete">Delete</a>
+              <a href="delete_task.php?index=<?= $data_list['task_id']?>&amp;index_list=<?= $data_list['list_id']?>" class="delete">Delete</a>
             </td>
           </tr>
           <?php
