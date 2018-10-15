@@ -48,12 +48,11 @@
     <?php
   require("bdd.php");
   $req = $bdd->query('SELECT * FROM project');
-
+  
   $dtz = new DateTimeZone("Europe/Paris"); //Your timezone
   $now = new DateTime(date("Y-m-d H:i:s"), $dtz);
-
+  
   while($data = $req->fetch()){
-
   $deadline = new DateTime($data['deadline']);
 
   $interval = $now->diff($deadline);
@@ -75,6 +74,7 @@
               <span class="ui ribbon label red">Failure</span>
             </div>
             <?php
+
             } else {
               ?>
             <div class="ui top right attached">
