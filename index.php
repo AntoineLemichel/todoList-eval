@@ -48,13 +48,14 @@
     <?php
   require("bdd.php");
   $req = $bdd->query('SELECT * FROM project');
-
+  
+  $dtz = new DateTimeZone("Europe/Paris"); //Your timezone
+  $now = new DateTime(date("Y-m-d H:i:s"), $dtz);
+  
   while($data = $req->fetch()){
-
   $deadline = new DateTime($data['deadline']);
-  $datecreate = new DateTime($data['datetime']);
 
-  $interval = $datecreate->diff($deadline);
+  $interval = $now->diff($deadline);
 
 ?>
     <div class="ui cards">
@@ -67,18 +68,19 @@
           <div class="meta">
             <span>50 %</span>
             <?php
-            if($deadline < $datecreate){
+            if($deadline < $now){
               ?>
-              <div class="ui top right attached">
-                <span class="ui ribbon label red">Failure</span>
-              </div>
-              <?php
+            <div class="ui top right attached">
+              <span class="ui ribbon label red">Failure</span>
+            </div>
+            <?php
+
             } else {
               ?>
-              <div class="ui top right attached">
-                <span class="ui ribbon label orange">Working</span>
-              </div>
-              <?php
+            <div class="ui top right attached">
+              <span class="ui ribbon label orange">Working</span>
+            </div>
+            <?php
             }
             ?>
           </div>
