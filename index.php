@@ -55,7 +55,6 @@
   while($data = $req->fetch()){
 
   $deadline = new DateTime($data['deadline']);
-  $datecreate = new DateTime($data['datetime']);
 
   $interval = $now->diff($deadline);
 
@@ -70,7 +69,7 @@
           <div class="meta">
             <span>50 %</span>
             <?php
-            if($deadline < $datecreate){
+            if($deadline < $now){
               ?>
             <div class="ui top right attached">
               <span class="ui ribbon label red">Failure</span>
