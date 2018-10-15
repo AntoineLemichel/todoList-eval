@@ -94,7 +94,7 @@ require("../bdd.php");
   LEFT JOIN task AS t ON t.list_id = l.id
   WHERE p.id =' . $_GET['index']
   );
-
+  
 
   $req_select_list = $bdd->query('SELECT * FROM list WHERE id_project =' . $_GET['index']);
   
@@ -150,20 +150,60 @@ require("../bdd.php");
         <tbody>
           <?php
             while($data_list = $req_list->fetch()){
+              $dtz = new DateTimeZone("Europe/Paris"); //Your timezone
+              $now = new DateTime(date("Y-m-d H:i:s"), $dtz);
+              $deadline = new DateTime($data_list['task_deadline']);
+              $interval = $now->diff($deadline);
           ?>
           <tr>
             <td>
               <?= $data_list['list_name']?>
             </td>
+            <?php
+              if($data_list['task_done'] == 1){
+                ?>
+            <td class="positive">
+              <?= $data_list['task_name']?>
+            </td>
+            <?php
+              } else {
+                ?>
             <td>
               <?= $data_list['task_name']?>
             </td>
+            <?php
+              }
+              if($deadline < $now AND $data_list['task_done'] == 0){
+                ?>
+            <td class="negative">
+              <?= $data_list['task_deadline']?>
+            </td>
+            <?php
+              } else {
+            ?>
             <td>
               <?= $data_list['task_deadline']?>
             </td>
+            <?php
+            }
+            ?>
+
             <td>
-              <a href="#" class="ui green button">Done</a>
-              <a href="#" class="delete">Delete</a>
+              <?php
+                if ($data_list['task_done'] == 1) {
+                ?>
+              <a href="update/update_notdone_task.php?index=<?= $data_list['task_id']?>" class="ui orange button">Not
+                done</a>
+              <?php
+                } else {
+
+              ?>
+              <a href="update/update_task.php?index=<?= $data_list['task_id']?>" class="ui green button">Done</a>
+
+              <?php
+                }
+              ?>
+              <a href="delete_task.php?index=<?= $data_list['task_id']?>" class="delete">Delete</a>
             </td>
           </tr>
           <?php
@@ -171,7 +211,7 @@ require("../bdd.php");
           ?>
         </tbody>
       </table>
-      
+
       <div class="extra content">
         <button class="ui blue button" id="settings_project"><i class="cogs icon"></i>Settings</button>
       </div>
@@ -189,7 +229,7 @@ require("../bdd.php");
 
 
 
-  
+
   <div class="ui modal">
     <i class="close icon"></i>
     <div class="header">
@@ -229,7 +269,9 @@ require("../bdd.php");
                   <?php
                       while($data_select_list = $req_select_list->fetch()){
                   ?>
-                      <option value="<?= $data_select_list['id'];?>"><?= $data_select_list['name'];?></option>
+                  <option value="<?= $data_select_list['id'];?>">
+                    <?= $data_select_list['name'];?>
+                  </option>
                   <?php
                   }
                   ?>
