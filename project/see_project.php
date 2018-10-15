@@ -149,7 +149,7 @@ require("../bdd.php");
         </thead>
         <tbody>
           <?php
-              while($data_list = $req_list->fetch()){
+            while($data_list = $req_list->fetch()){
           ?>
           <tr>
             <td>
@@ -200,36 +200,36 @@ require("../bdd.php");
       <div class="ui two column very relaxed stackable grid">
         <div class="column">
           <div class="ui form">
-            <form action="" method="post">
+            <form action="insert/insert_list.php" method="post">
               <p class="ui header">Add list</p>
               <div class="field required">
-                <label>Name list :</label>
-                <input placeholder="Name list" type="text">
+                <label for="name_list">Name list :</label>
+                <input placeholder="Name list" type="text" name="name_list" id="name_list">
               </div>
               <div class="field required">
-                <label>Deadline :</label>
-                <input type="date">
+                <label for="deadline_list">Deadline :</label>
+                <input type="date" name="deadline_list" id="deadline_list">
               </div>
-              <div class="ui blue submit button">Add list</div>
+              <input type="hidden" name="index" value="<?= $_GET['index']?>">
+              <input class="ui blue submit button" type="submit" value="Add list">
             </form>
           </div>
         </div>
         <div class="middle aligned column">
           <div class="ui form">
-            <form action="" method="post">
+            <form action="insert/insert_task.php" method="post">
               <p class="ui header">Add task</p>
               <div class="field required">
                 <label for="task_name">Name task :</label>
-                <input placeholder="Name task" type="text" name="task_name" id="task_name">
+                <input placeholder="Name task" type="text" name="name_task" id="task_name">
               </div>
               <div class="field required">
                 <label for="select_list">Select one list :</label>
-                <select id="select_list">
+                <select id="select_list" name="select_list">
                   <?php
                       while($data_select_list = $req_select_list->fetch()){
-                        echo $data_select_list['name'];
                   ?>
-                      <option value="<?= $data_select_list['name'];?>"><?= $data_select_list['name'];?></option>
+                      <option value="<?= $data_select_list['id'];?>"><?= $data_select_list['name'];?></option>
                   <?php
                   }
                   ?>
@@ -237,9 +237,9 @@ require("../bdd.php");
               </div>
               <div class="field required">
                 <label for="deadline_task">Deadline :</label>
-                <input type="date" name="deadline" id="deadline_task">
+                <input type="date" name="deadline_task" id="deadline_task">
               </div>
-              <div class="ui blue submit button">Add list</div>
+              <input class="ui blue submit button" type="submit" value="Add task">
             </form>
           </div>
         </div>
