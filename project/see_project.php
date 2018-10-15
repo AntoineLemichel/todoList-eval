@@ -95,6 +95,10 @@ require("../bdd.php");
   WHERE p.id =' . $_GET['index']
   );
 
+
+  $req_select_list = $bdd->query('SELECT * FROM list WHERE id_project =' . $_GET['index']);
+  
+
   $data_list_simple = $req_list_simple->fetch();
   ?>
   <header>
@@ -145,8 +149,8 @@ require("../bdd.php");
         </thead>
         <tbody>
           <?php
-        while($data_list = $req_list->fetch()){
-      ?>
+              while($data_list = $req_list->fetch()){
+          ?>
           <tr>
             <td>
               <?= $data_list['list_name']?>
@@ -158,8 +162,8 @@ require("../bdd.php");
               <?= $data_list['task_deadline']?>
             </td>
             <td>
-              <a href="#" class="ui red button">Delete</a>
               <a href="#" class="ui green button">Done</a>
+              <a href="#" class="delete">Delete</a>
             </td>
           </tr>
           <?php
@@ -167,7 +171,7 @@ require("../bdd.php");
           ?>
         </tbody>
       </table>
-
+      
       <div class="extra content">
         <button class="ui blue button" id="settings_project"><i class="cogs icon"></i>Settings</button>
       </div>
@@ -175,6 +179,17 @@ require("../bdd.php");
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+  
   <div class="ui modal">
     <i class="close icon"></i>
     <div class="header">
@@ -204,12 +219,25 @@ require("../bdd.php");
             <form action="" method="post">
               <p class="ui header">Add task</p>
               <div class="field required">
-                <label>Name task :</label>
-                <input placeholder="Name task" type="text">
+                <label for="task_name">Name task :</label>
+                <input placeholder="Name task" type="text" name="task_name" id="task_name">
               </div>
               <div class="field required">
-                <label>Deadline :</label>
-                <input type="date">
+                <label for="select_list">Select one list :</label>
+                <select id="select_list">
+                  <?php
+                      while($data_select_list = $req_select_list->fetch()){
+                        echo $data_select_list['name'];
+                  ?>
+                      <option value="<?= $data_select_list['name'];?>"><?= $data_select_list['name'];?></option>
+                  <?php
+                  }
+                  ?>
+                </select>
+              </div>
+              <div class="field required">
+                <label for="deadline_task">Deadline :</label>
+                <input type="date" name="deadline" id="deadline_task">
               </div>
               <div class="ui blue submit button">Add list</div>
             </form>
@@ -221,6 +249,15 @@ require("../bdd.php");
       </div>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
 
 
   <script src="../js/vendor/modernizr-3.6.0.min.js"></script>

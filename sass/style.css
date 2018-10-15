@@ -45,13 +45,22 @@ nav a:hover {
   margin: 10px 4px 10px 0px !important;
 }
 
+.delete {
+  vertical-align: middle !important;
+  color: gray;
+}
+
+.delete:hover {
+  color: gray !important;
+}
+
 .container-index {
   display: -ms-grid !important;
   display: grid !important;
-  -ms-grid-columns: auto auto auto !important;
-      grid-template-columns: auto auto auto !important;
-  -ms-grid-rows: auto auto auto !important;
-      grid-template-rows: auto auto auto !important;
+  -ms-grid-columns: auto auto auto auto !important;
+      grid-template-columns: auto auto auto auto !important;
+  -ms-grid-rows: auto auto auto auto !important;
+      grid-template-rows: auto auto auto auto !important;
   grid-column-gap: 5px !important;
   grid-row-gap: 30px !important;
 }
