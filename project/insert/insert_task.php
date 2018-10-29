@@ -9,7 +9,6 @@ if(isset($_POST['name_task']) and !empty($_POST['name_task'])){
       'done' => 0,
       'list_id' => $_POST['select_list']
     ));
-    echo $_POST['select_list'];
     header('Location: '. $_SERVER['HTTP_REFERER']);
 
   } else {

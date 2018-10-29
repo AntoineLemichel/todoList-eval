@@ -246,10 +246,6 @@ require("../bdd.php");
                 <label for="name_list">Name list :</label>
                 <input placeholder="Name list" type="text" name="name_list" id="name_list">
               </div>
-              <div class="field required">
-                <label for="deadline_list">Deadline :</label>
-                <input type="date" name="deadline_list" id="deadline_list">
-              </div>
               <input type="hidden" name="index" value="<?= $_GET['index']?>">
               <input class="ui blue submit button" type="submit" value="Add list">
             </form>

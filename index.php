@@ -47,7 +47,7 @@
   <div class="container-index">
     <?php
   require("bdd.php");
-  $req = $bdd->query('SELECT * FROM project');
+  $req = $bdd->query('SELECT * FROM project ORDER BY datetime DESC');
   
   $dtz = new DateTimeZone("Europe/Paris"); //Your timezone
   $now = new DateTime(date("Y-m-d H:i:s"), $dtz);

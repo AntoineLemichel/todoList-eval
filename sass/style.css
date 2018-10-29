@@ -57,16 +57,21 @@ nav a:hover {
 .container-index {
   display: -ms-grid !important;
   display: grid !important;
-  -ms-grid-columns: auto auto auto auto !important;
-      grid-template-columns: auto auto auto auto !important;
-  -ms-grid-rows: auto auto auto auto !important;
-      grid-template-rows: auto auto auto auto !important;
+  -ms-grid-columns: auto !important;
+      grid-template-columns: auto !important;
+  -ms-grid-rows: auto !important;
+      grid-template-rows: auto !important;
   grid-column-gap: 5px !important;
   grid-row-gap: 30px !important;
 }
 
 .add_project {
   margin: 50px auto auto auto !important;
+}
+
+.modal {
+  width: 90% !important;
+  height: 70vh !important;
 }
 
 .modal .header {
@@ -119,5 +124,12 @@ nav a:hover {
 .container_detail table {
   width: 90% !important;
   margin: auto auto 50px auto !important;
+}
+
+@media screen and (min-width: 992px) {
+  .container-index {
+    -ms-grid-columns: auto auto auto !important;
+        grid-template-columns: auto auto auto !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */
