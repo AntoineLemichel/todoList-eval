@@ -1,6 +1,5 @@
 <?php
 require("../../bdd.php");
-echo $_POST['index'];
 if(isset($_POST['name_list']) and !empty($_POST['name_list'])){
   if(isset($_POST['deadline_list']) and !empty($_POST['deadline_list'])){
     $req_insert = $bdd->prepare('INSERT INTO list (name, deadline, id_project, done) VALUES (:name, :deadline, :id_project, :done)');

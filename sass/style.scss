@@ -62,8 +62,8 @@ nav {
 }
 .container-index {
   display: grid !important;
-  grid-template-columns: auto auto auto auto!important;
-  grid-template-rows: auto auto auto auto !important;
+  grid-template-columns: auto!important;
+  grid-template-rows: auto !important;
   grid-column-gap: 5px !important;
   grid-row-gap: 30px !important;
 }
@@ -74,6 +74,8 @@ nav {
 }
 
 .modal {
+  width: 90% !important;
+  height: 70vh !important;
   .header {
     margin: auto auto 20px auto !important;
   }
@@ -127,5 +129,12 @@ nav {
   table {
     width: 90% !important;
     margin: auto auto 50px auto !important;
+  }
+}
+
+
+@media screen and(min-width: 992px){
+  .container-index{
+    grid-template-columns: auto auto auto !important;
   }
 }
